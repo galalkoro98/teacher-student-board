@@ -1,2 +1,54 @@
 @import './index';
 @import './student';
+@import './teacher';
+@import './login';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    background-image: url('../image/libary.jpeg');
+    background-size: cover;
+    padding: 0px;
+    height: 925px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.header {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 9vh;
+    background-color: #9c1212;
+    border-radius: 13px;
+}
+
+.container__header__title {
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+.header__title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgb(247, 239, 239);
+    text-decoration: none;
+    padding-left: 1em;
+    text-align: center;
+    display: flex;
+}
+
+.footer__text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+
+}
