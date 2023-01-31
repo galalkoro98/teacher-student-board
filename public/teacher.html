@@ -1,46 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/teachers.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>teacher board </title>
 </head>
+
 <body>
-    <div class="header">
-        <h1>Lorem, ipsum.</h1>
-    </div>
-    <section class="teacherBody">
-        <div class="dashboard">
-            <div class="question1">
-                <div class="questions">
-                    <h3>Lorem ipsum dolor sit amet?</h3>
-                </div>
-                <div class="submit">
-                    <button>replay</button>
+
+    <main class="main">
+        <!-- header -->
+        <header class="header">
+            <div class="container__header__title">
+                <a href="./index.html" class="header__title">Crack Your Future</a>
+                <!-- logout -->
+                <div class="container__logout">
+                    <button class="logout__button">Logout</button>
                 </div>
             </div>
-            <div class="question1">
-                <div class="questions">
-                    <h3>Lorem ipsum dolor sit amet?</h3>
+
+
+        </header>
+        <div class="teacher__board__container">
+            <div class="teach__student__letter">
+                <div class="teacher__student__letter__container">
+                    <h1 class="teacher__student__letter__title">Student Letter</h1>
+                    <div class="student__letter__info">
+                        <div class="student__letter__info__item">
+                            <span class="student__letter__info__label">Name:</span>
+                            <span class="student__letter__info__value" id="student-name"></span>
+                        </div>
+                        <div class="student__letter__info__item">
+                            <span class="student__letter__info__label">Email:</span>
+                            <span class="student__letter__info__value" id="student-email"></span>
+                        </div>
+                        <div class="student__letter__info__item">
+                            <span class="student__letter__info__label">Subject:</span>
+                            <span class="student__letter__info__value" id="student-subject"></span>
+                        </div>
+                    </div>
+                    <div class="student__letter__message">
+                        <p class="student__letter__message__label">Message:</p>
+                        <p class="student__letter__message__text" id="student-message"></p>
+                    </div>
+                    <button class="student__letter__reply-button" id="reply-button">Reply</button>
                 </div>
-                <div class="submit">
-                    <button>replay</button>
+            </div>
+
+            <div class="reply__form" id="reply-form">
+                <div class="reply__form__container">
+                    <h1 class="reply__form__title">Reply</h1>
+                    <form action="" class="reply-form__form">
+                        <div class="reply__form__form__item">
+                            <label for="reply-email" class="reply-form__form__label">To:</label>
+                            <input type="text" name="reply-email" id="reply-email" class="reply__form__form__input"
+                                disabled>
+                        </div>
+                        <div class="reply__form__form__item">
+                            <label for="reply-subject" class="reply-form__form__label">Subject:</label>
+                            <input type="text" name="reply-subject" id="reply-subject" class="reply-form__form__input">
+                        </div>
+                        <div class="reply__form__form__item">
+                            <label for="reply__message" class="reply-form__form__label">Message:</label>
+                            <textarea name="reply__message" id="reply-message"
+                                class="reply__form__form__textarea"></textarea>
+                        </div>
+                        <button class="reply__form__form__button">Send</button>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="catagories">
-            <div class="css">
-                <h3>Css</h3>
-            </div>
-            <div class="html">
-                <h3>Html</h3>
-            </div>
-            <div class="javascript">
-                <h3>Javascript</h3>
-            </div>
-        </div>
-    </section>
+
+        <footer>
+            <p class="footer__text">© 2023 Crack Your Future</p>
+        </footer>
+    </main>
+
+
+    <script src="./scripts/teacher.js"></script>
 </body>
+
 </html>
