@@ -1,24 +1,17 @@
-const askQuestionForm = document.querySelector(".ask__question__form");
-const askQuestionFormInput = document.querySelector(
-  ".ask__question__form__input"
-);
-const askQuestionFormSelect = document.querySelector(
-  ".ask__question__form__catogry__select"
-);
-const askQuestionFormTextarea = document.querySelector(
-  ".ask__question__form__message__textarea"
-);
+const form = document.getElementById("form");
+const email = document.getElementById("email");
+const category = document.getElementById("category");
+const message = document.getElementById("message");
 
-askQuestionForm.addEventListener("submit", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const email = askQuestionFormInput.value;
-  const category = askQuestionFormSelect.value;
-  const message = askQuestionFormTextarea.value;
 
   const data = {
-    email,
-    category,
-    message,
+    data: {
+      email: email.value,
+      category: category.value,
+      message: message.value,
+    },
   };
 
   fetch("http://localhost:1337/api/questions", {
@@ -33,12 +26,10 @@ askQuestionForm.addEventListener("submit", (e) => {
       console.log(data);
 
       if (data.status === "success") {
-        alert("Question added successfully");
+        alert("Question sent successfully!");
+        window.location.href = "../index.html";
       } else {
-        alert("Question not added");
+        alert("Question not sent!");
       }
-    })
-    .catch((err) => {
-      console.log(err);
     });
 });

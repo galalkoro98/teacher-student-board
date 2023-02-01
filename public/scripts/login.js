@@ -6,36 +6,31 @@ const passwordInput = document.querySelector(
 );
 const loginButton = document.querySelector(".login__form__button");
 
-loginButton.addEventListener("click", function (event) {
+loginButton.addEventListener("click", async function (event) {
   event.preventDefault();
 
-  const username = usernameInput.value;
-  const password = passwordInput.value;
-
-  //   console.log(`Username: ${username}`);
-  //   console.log(`Password: ${password}`);
-
-  if (username === "") {
-    alert("Please write your username");
-  } else if (password === "") {
-    alert("Please write your password");
-  } else {
-    localStorage.setItem("username", username);
-
-    fetch("http://localhost:1337/api/users")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        const user = data.find((user) => user.username === username);
-        if (user) {
-          if (user.password === password) {
-            window.location.href = "./teacher.html";
-          } else {
-            alert("Password is incorrect");
-          }
-        } else {
-          alert("Username is incorrect");
-        }
-      });
+  try {
+    const response = await fetch("http://localhost:1337/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: usernameInput.value,
+        password: passwordInput.value,
+      }),
+    });
+    if (!response.ok) {
+      throw new Error(`Unexpected HTTP status: ${response.status}`);
+    }
+    const data = await response.json();
+    if (data.data.status === "success") {
+      window.location.href = "../teacher.html";
+    } else {
+      alert("Wrong username or password");
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong, please try again");
   }
 });
